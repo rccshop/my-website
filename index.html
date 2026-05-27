@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ray Choice Center - Trusted Rcc CSC Center | Civil Line, Lucknow</title>
+    <meta name="description" content="Ray Choice Center - 10 years trusted Jan Seva Kendra in Lucknow. Government services, online form filling, Aadhar, PAN, Passport, card printing, and designing services.">
+    <meta name="keywords" content="RCC CSC CENTER, CSC Center, Lucknow, Government Services, Aadhar Card, PAN Card, Passport, Online Forms, Card Printing">
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .bg-saffron { background-color: #000080; }
+        .bg-indian-green { background-color: #138808; }
+        .bg-indian-blue { background-color: #000080; }
+        .text-saffron { color: #FF9933; }
+        .text-indian-green { color: #138808; }
+        .text-indian-blue { color: #000080; }
+        .border-saffron { border-color: #FF9933; }
+        .border-indian-green { border-color: #138808; }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        
+        .call-now-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .section-padding {
+            padding: 4rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 2rem 0;
+            }
+        }
+        
+        .service-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            height: 100%;
+        }
+        
+        .service-link:hover {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 250px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            z-index: 1001;
+            padding: 80px 20px 20px;
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .mobile-menu-overlay.active {
+            display: block;
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .hidden.md\:flex {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="flex justify-end mb-6">
+            <button onclick="toggleMobileMenu()" class="text-2xl">
+                <i class="fas fa-times text-indian-blue"></i>
+            </button>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <a href="#home" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-saffron transition text-lg">Home</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-saffron transition text-lg">About</a>
+            <a href="#services" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-saffron transition text-lg">Services</a>
+            <a href="#gallery" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-saffron transition text-lg">Gallery</a>
+            <a href="#testimonials" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-saffron transition text-lg">Testimonials</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-saffron transition text-lg">Contact</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-saffron rounded-full flex items-center justify-center">
+                        <i class="fas fa-building text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-indian-blue">Ray Choice Center</h1>
+                        <p class="text-sm text-gray-600">Trusted Jan Seva Kendra</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="text-gray-700 hover:text-saffron transition">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-saffron transition">About</a>
+                    <a href="#services" class="text-gray-700 hover:text-saffron transition">Services</a>
+                    <a href="#gallery" class="text-gray-700 hover:text-saffron transition">Gallery</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-saffron transition">Testimonials</a>
+                    <a href="#contact" class="text-gray-700 hover:text-saffron transition">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-2">
+                    <a href="tel:+916266713088" class="bg-indian-green text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                        <i class="fas fa-phone mr-2"></i>Call Now
+                    </a>
+                    <button class="menu-toggle text-2xl text-indian-blue" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg section-padding">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-6xl font-bold text-blue mb-6">
+                    Welcome to Ray Choice Center
+                </h2>
+                <p class="text-xl md:text-2xl text-white mb-8">
+                    Your Trusted CSC Center for 10 Years in Lucknow
+                </p>
+                <div class="bg-white rounded-lg p-8 shadow-2xl">
+                    <div class="grid md:grid-cols-3 gap-6 text-center">
+                        <div>
+                            <div class="w-16 h-16 bg-saffron rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-award text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-indian-blue mb-2">10+ Years</h3>
+                            <p class="text-gray-600">Trusted Experience</p>
+                        </div>
+                        <div>
+                            <div class="w-16 h-16 bg-indian-green rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-users text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-indian-blue mb-2">1000+</h3>
+                            <p class="text-gray-600">Happy Customers</p>
+                        </div>
+                        <div>
+                            <div class="w-16 h-16 bg-indian-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-cogs text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-indian-blue mb-2">50+</h3>
+                            <p class="text-gray-600">Services Available</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-indian-blue mb-4">About Ray Choice Center</h2>
+                <div class="w-20 h-1 bg-saffron mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-indian-blue mb-6">Our Journey of Trust & Service</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        For over a decade, Ray Choice Center has been the cornerstone of digital and government services in Civil Line, Lucknow. Founded and led by <strong>Aditya Patil</strong>, our center has built an unwavering reputation for reliability, efficiency, and customer satisfaction.
+                    </p>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        We started with a simple mission: to bridge the gap between citizens and government services, making essential documents and schemes accessible to everyone. Today, we proudly serve thousands of families across Lucknow and surrounding areas.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-handshake text-saffron text-2xl mb-2"></i>
+                            <h4 class="font-semibold text-indian-blue">Trust</h4>
+                            <p class="text-sm text-gray-600">Built over 10 years</p>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-clock text-indian-green text-2xl mb-2"></i>
+                            <h4 class="font-semibold text-indian-blue">Quick Service</h4>
+                            <p class="text-sm text-gray-600">Same day processing</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-gradient-to-r from-saffron to-indian-green rounded-lg p-8 text-white">
+                        <h3 class="text-2xl font-bold mb-6">Meet Our Owner</h3>
+                        <div class="flex items-center mb-6">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Aditya Patil" class="w-20 h-20 rounded-full border-4 border-white mr-4 object-cover">
+                            <div>
+                                <h4 class="text-xl font-bold">Aditya Patil</h4>
+                                <p class="text-lg">Founder & Owner</p>
+                            </div>
+                        </div>
+                        <p class="leading-relaxed">
+                            "Our commitment is to provide every citizen with easy access to government services and digital solutions. We believe in serving our community with integrity and dedication."
+                        </p>
+                    </div>
+                    
+                    <div class="mt-8 p-6 bg-blue-50 rounded-lg">
+                        <h4 class="text-xl font-bold text-indian-blue mb-4">Our Mission</h4>
+                        <p class="text-gray-700">
+                            To empower citizens by providing efficient, reliable, and affordable access to government services and digital solutions, fostering digital literacy and inclusion in our community.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-indian-blue mb-4">Our Services</h2>
+                <div class="w-20 h-1 bg-saffron mx-auto mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Comprehensive digital and offline services to meet all your documentation and design needs
+                </p>
+            </div>
+            
+            <!-- Online & Government Services -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold text-center text-indian-green mb-8">
+                    <i class="fas fa-laptop text-saffron mr-3"></i>
+                    Online & Government Services
+                </h3>
+                
+                <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div class="service-card bg-white rounded-lg shadow-lg">
+                        <a href="#" class="service-link p-6 text-center">
+                            <i class="fas fa-edit text-saffron text-3xl mb-4"></i>
+                            <h4 class="font-bold text-indian-blue mb-2">Online Form Filling</h4>
+                            <p class="text-gray-600 text-sm">Professional form filling for all government applications</p>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card bg-white rounded-lg shadow-lg">
+                        <a href="#" class="service-link p-6 text-center">
+                            <i class="fas fa-id-card text-saffron text-3xl mb-4"></i>
+                            <h4 class="font-bold text-indian-blue mb-2">Aadhar Card Services</h4>
+                            <p class="text-gray-600 text-sm">New registration, updates, and corrections</p>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card bg-white rounded-lg shadow-lg">
+                        <a href="#" class="service-link p-6 text-center">
+                            <i class="fas fa-credit-card text-saffron text-3xl mb-4"></i>
+                            <h4 class="font-bold text-indian-blue mb-2">PAN Card Apply</h4>
+                            <p class="text-gray-600 text-sm">New PAN card application and corrections</p>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card bg-white rounded-lg shadow-lg">
+                        <a href="#" class="service-link p-6 text-center">
+                            <i class="fas fa-passport text-saffron text-3xl mb-4"></i>
+                            <h4 class="font-bold text-indian-blue mb-2">Passport Apply</h4>
+                            <p class="text-gray-600 text-sm">Fresh and renewal passport applications</p>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card bg-white rounded-lg shadow-lg">
+                        <a href="#" class="service-link p-6 text-center">
+                            <i class="fas fa-utensils text-saffron text-3xl mb-4"></i>
+                            <h4 class="font-bold text-indian-blue mb-2">Ration Card</h4>
+                            <p class="text-gray-600 text-sm">New ration card and modifications</p>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card bg-white rounded-lg shadow-lg">
+                        <a href="#" class="service-link p-6 text-center">
+                            <i class="fas fa-vote-yea text-saffron text-3xl mb-4"></i>
+                            <h4 class="font-bold text-indian-blue mb-2">Voter ID</h4>
+                            <p class="text-gray-600 text-sm">Voter registration and ID card services</p>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card bg-white rounded-lg shadow-lg">
+                        <a href="#" class="service-link p-6 text-center">
+                            <i class="fas fa-car text-saffron text-3xl mb-4"></i>
+                            <h4 class="font-bold text-indian-blue mb-2">Driving License</h4>
+                            <p class="text-gray-600 text-sm">DL application and renewal services</p>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card bg-white rounded-lg shadow-lg">
+                        <a href="#" class="service-link p-6 text-center">
+                            <i class="fas fa-heart text-saffron text-3xl mb-4"></i>
+                            <h4 class="font-bold text-indian-blue mb-2">Ayushman Card</h4>
+                            <p class="text-gray-600 text-sm">Health insurance card registration</p>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card bg-white rounded-lg shadow-lg">
+                        <a href="#" class="service-link p-6 text-center">
+                            <i class="fas fa-university text-saffron text-3xl mb-4"></i>
+                            <h4 class="font-bold text-indian-blue mb-2">All Government Cards</h4>
+                            <p class="text-gray-600 text-sm">Comprehensive government card services</p>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card bg-white rounded-lg shadow-lg">
+                        <a href="#" class="service-link p-6 text-center">
+                            <i class="fas fa-file-alt text-saffron text-3xl mb-4"></i>
+                            <h4 class="font-bold text-indian-blue mb-2">Government Schemes</h4>
+                            <p class="text-gray-600 text-sm">All government scheme applications</p>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card bg-white rounded-lg shadow-lg">
+                        <a href="#" class="service-link p-6 text-center">
+                            <i class="fas fa-certificate text-saffron text-3xl mb-4"></i>
+                            <h4 class="font-bold text-indian-blue mb-2">Birth Certificate</h4>
+                            <p class="text-gray-600 text-sm">Birth certificate registration</p>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card bg-white rounded-lg shadow-lg">
+                        <a href="#" class="service-link p-6 text-center">
+                            <i class="fas fa-scroll text-saffron text-3xl mb-4"></i>
+                            <h4 class="font-bold text-indian-blue mb-2">All Certificates</h4>
+                            <p class="text-gray-600 text-sm">Income, Domicile, Caste, Death certificates</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Offline & Designing Services -->
+            <div>
+                <h3 class="text-3xl font-bold text-center text-indian-green mb-8">
+                    <i class="fas fa-print text-saffron mr-3"></i>
+                    Offline & Designing Services
+                </h3>
+                
+                <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div class="service-card bg-white rounded-lg shadow-lg">
+                        <a href="#" class="service-link p-6 text-center">
+                            <i class="fas fa-heart text-saffron text-3xl mb-4"></i>
+                            <h4 class="font-bold text-indian-blue mb-2">Shaadi Card Printing</h4>
+                            <p class="text-gray-600 text-sm">Beautiful wedding invitation designs</p>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card bg-white rounded-lg shadow-lg">
+                        <a href="#" class="service-link p-6 text-center">
+                            <i class="fas fa-flag text-saffron text-3xl mb-4"></i>
+                            <h4 class="font-bold text-indian-blue mb-2">Banner & Flex Design</h4>
+                            <p class="text-gray-600 text-sm">Professional banners and flex printing</p>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card bg-white rounded-lg shadow-lg">
+                        <a href="#" class="service-link p-6 text-center">
+                            <i class="fas fa-copy text-saffron text-3xl mb-4"></i>
+                            <h4 class="font-bold text-indian-blue mb-2">Photocopy (Xerox)</h4>
+                            <p class="text-gray-600 text-sm">High-quality document photocopying</p>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card bg-white rounded-lg shadow-lg">
+                        <a href="#" class="service-link p-6 text-center">
+                            <i class="fas fa-camera text-saffron text-3xl mb-4"></i>
+                            <h4 class="font-bold text-indian-blue mb-2">Passport Size Photo</h4>
+                            <p class="text-gray-600 text-sm">Professional passport size photographs</p>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card bg-white rounded-lg shadow-lg">
+                        <a href="#" class="service-link p-6 text-center">
+                            <i class="fas fa-layer-group text-saffron text-3xl mb-4"></i>
+                            <h4 class="font-bold text-indian-blue mb-2">Lamination</h4>
+                            <p class="text-gray-600 text-sm">Document protection lamination</p>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card bg-white rounded-lg shadow-lg">
+                        <a href="#" class="service-link p-6 text-center">
+                            <i class="fas fa-tools text-saffron text-3xl mb-4"></i>
+                            <h4 class="font-bold text-indian-blue mb-2">Other Custom Works</h4>
+                            <p class="text-gray-600 text-sm">Various custom printing and design services</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-indian-blue mb-4">Our Gallery</h2>
+                <div class="w-20 h-1 bg-saffron mx-auto mb-4"></div>
+                <p class="text-gray-600">Take a look at our shop, team, and sample work</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="rounded-lg overflow-hidden shadow-lg">
+                    <img src="<a href="https://ibb.co/8LWJYD6P"><img src="https://i.ibb.co/Rkx1jpzQ/Whats-App-Image-2026-05-27-at-8-18-14-PM.jpg" alt="Whats-App-Image-2026-05-27-at-8-18-14-PM" border="0"></a>w=400&h=300&fit=crop" alt="Shop Front" class="w-full h-48 object-cover">
+                    <div class="p-3 bg-gray-50">
+                        <p class="font-semibold text-indian-blue">Shop Front View</p>
+                    </div>
+                </div>
+                
+                <div class="rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop" alt="Our Team" class="w-full h-48 object-cover">
+                    <div class="p-3 bg-gray-50">
+                        <p class="font-semibold text-indian-blue">Our Team</p>
+                    </div>
+                </div>
+                
+                <div class="rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&h=300&fit=crop" alt="Work Station" class="w-full h-48 object-cover">
+                    <div class="p-3 bg-gray-50">
+                        <p class="font-semibold text-indian-blue">Work Station</p>
+                    </div>
+                </div>
+                
+                <div class="rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=400&h=300&fit=crop" alt="Printing Setup" class="w-full h-48 object-cover">
+                    <div class="p-3 bg-gray-50">
+                        <p class="font-semibold text-indian-blue">Printing Setup</p>
+                    </div>
+                </div>
+                
+                <div class="rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&h=300&fit=crop" alt="Design Samples" class="w-full h-48 object-cover">
+                    <div class="p-3 bg-gray-50">
+                        <p class="font-semibold text-indian-blue">Design Samples</p>
+                    </div>
+                </div>
+                
+                <div class="rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1605723517503-3cadb5818a0c?w=400&h=300&fit=crop" alt="Certificates" class="w-full h-48 object-cover">
+                    <div class="p-3 bg-gray-50">
+                        <p class="font-semibold text-indian-blue">Certificates</p>
+                    </div>
+                </div>
+                
+                <div class="rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=400&h=300&fit=crop" alt="Customer Service" class="w-full h-48 object-cover">
+                    <div class="p-3 bg-gray-50">
+                        <p class="font-semibold text-indian-blue">Customer Service</p>
+                    </div>
+                </div>
+                
+                <div class="rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=400&h=300&fit=crop" alt="Office Interior" class="w-full h-48 object-cover">
+                    <div class="p-3 bg-gray-50">
+                        <p class="font-semibold text-indian-blue">Office Interior</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section-padding bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-indian-blue mb-4">What Our Customers Say</h2>
+                <div class="w-20 h-1 bg-saffron mx-auto mb-4"></div>
+                <p class="text-gray-600">Trusted by thousands of happy customers for 10 years</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ramesh Kumar" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-bold text-indian-blue">Ramesh Kumar</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "Excellent service! Got my PAN card in just 2 days. Aditya ji is very helpful and professional. Highly recommended for all government work."
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Sharma" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-bold text-indian-blue">Priya Sharma</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "Best place for wedding card printing! Beautiful designs and reasonable prices. They completed my order within the promised time."
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Sunil Gupta" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-bold text-indian-blue">Sunil Gupta</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "Very trustworthy service center. I've been coming here for 5 years for all my family's document work. Always satisfied with their service."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-indian-blue mb-4">Contact Us</h2>
+                <div class="w-20 h-1 bg-saffron mx-auto mb-4"></div>
+                <p class="text-gray-600">Get in touch with us for all your service needs</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div>
+                    <h3 class="text-2xl font-bold text-indian-blue mb-6">Get In Touch</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-saffron rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-indian-blue mb-1">Address</h4>
+                                <p class="text-gray-700">Pv 133 Avadhpur, Main Road Gondahoor, Pakhanjur, Chhattisgarh <br>Pin: 494776</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-indian-green rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-indian-blue mb-1">Phone</h4>
+                                <p class="text-gray-700">
+                                    <a href="tel:+916266713088" class="hover:text-indian-green transition">+91 7460051200</a>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-indian-blue rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-indian-blue mb-1">Email</h4>
+                                <p class="text-gray-700">
+                                    <a href="mailto:indiacsccenter@gmail.com" class="hover:text-indian-blue transition">indiacsccenter@gmail.com</a>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-clock text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-indian-blue mb-1">Working Hours</h4>
+                                <p class="text-gray-700">
+                                    Monday - Saturday: 9:00 AM - 8:00 PM<br>
+                                    Sunday: 10:00 AM - 6:00 PM
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Map -->
+                    <div class="mt-8">
+                        <iframe 
+                            src="<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3150.617031473176!2d80.58702688874354!3d20.10331181821199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a2c336826402bbd%3A0x8e01b5ba2f0f6af7!2sAvinash%20Computer%20And%20Ray%20Choice%20Center!5e0!3m2!1sen!2sin!4v1779895127490!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" 
+                            class="w-full h-64 rounded-lg shadow-lg"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div>
+                    <h3 class="text-2xl font-bold text-indian-blue mb-6">Send Message</h3>
+                    
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">Name *</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-saffron focus:outline-none" placeholder="Your Name" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">Phone *</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-saffron focus:outline-none" placeholder="Your Phone" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-saffron focus:outline-none" placeholder="Your Email">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Service Required</label>
+                            <select id="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-saffron focus:outline-none">
+                                <option value="">Select Service</option>
+                                <option value="aadhar">Aadhar Card Services</option>
+                                <option value="pan">PAN Card Apply</option>
+                                <option value="passport">Passport Apply</option>
+                                <option value="voter">Voter ID</option>
+                                <option value="driving">Driving License</option>
+                                <option value="wedding">Wedding Card Printing</option>
+                                <option value="banner">Banner & Flex Design</option>
+                                <option value="other">Other Services</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-saffron focus:outline-none" placeholder="Your Message"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="bg-indian-green text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition w-full md:w-auto">
+                            <i class="fas fa-paper-plane mr-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-indian-blue text-white section-padding">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-saffron rounded-full flex items-center justify-center">
+                            <i class="fas fa-building text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Ray Choice Center</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Your trusted Jan Seva Kendra for all government and digital services in Lucknow for over 10 years.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="https://facebook.com" target="_blank" class="w-10 h-10 bg-saffron rounded-full flex items-center justify-center hover:bg-orange-500 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" class="w-10 h-10 bg-saffron rounded-full flex items-center justify-center hover:bg-orange-500 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="w-10 h-10 bg-saffron rounded-full flex items-center justify-center hover:bg-orange-500 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/917460051200" target="_blank" class="w-10 h-10 bg-saffron rounded-full flex items-center justify-center hover:bg-orange-500 transition">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-saffron transition">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-saffron transition">About Us</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-saffron transition">Services</a></li>
+                        <li><a href="#gallery" class="text-gray-300 hover:text-saffron transition">Gallery</a></li>
+                        <li><a href="#testimonials" class="text-gray-300 hover:text-saffron transition">Testimonials</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-saffron transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Our Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-saffron transition">Aadhar Card Services</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-saffron transition">PAN Card Apply</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-saffron transition">Passport Services</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-saffron transition">Government Forms</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-saffron transition">Wedding Cards</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-saffron transition">Banner Printing</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Info</h4>
+                    <div class="space-y-3">
+                        <p class="text-gray-300">
+                            <i class="fas fa-map-marker-alt mr-2 text-saffron"></i>
+                            Civil Line, Lucknow, UP 226001
+                        </p>
+                        <p class="text-gray-300">
+                            <i class="fas fa-phone mr-2 text-saffron"></i>
+                            <a href="tel:+917460051200" class="hover:text-saffron transition">+91 7460051200</a>
+                        </p>
+                        <p class="text-gray-300">
+                            <i class="fas fa-envelope mr-2 text-saffron"></i>
+                            <a href="mailto:raychoicecenter@gmail.com" class="hover:text-saffron transition">raychoicecenter@gmail.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-300 mb-4 md:mb-0">
+                        © 2024 Ray Choice Center. All rights reserved. | Owned by Avinash Ray
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-300 hover:text-saffron transition">Privacy Policy</a>
+                        <a href="#" class="text-gray-300 hover:text-saffron transition">Terms of Service</a>
+                        <a href="#" class="text-gray-300 hover:text-saffron transition">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Call Now Button (Fixed) -->
+    <a href="tel:+917460051200" class="call-now-btn bg-indian-green text-white p-4 rounded-full shadow-2xl hover:bg-green-700 transition">
+        <i class="fas fa-phone text-xl"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('mobileMenuOverlay');
+            menu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        // Close mobile menu when clicking overlay
+        document.getElementById('mobileMenuOverlay').addEventListener('click', toggleMobileMenu);
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const target = document.querySelector(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Basic validation
+            if (!name || !phone) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Here you would typically send the data to a server
+            // For demo, just show success message
+            alert('Thank you for your message! We will contact you soon.');
+            this.reset();
+        });
+        
+        // Add active class to current section in navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('header a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-saffron');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-saffron');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
